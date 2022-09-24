@@ -36,3 +36,5 @@ print(c.exactMatch(cl_test, p))
 c.usePrior = False
 p = c.predict(data_test)
 print(c.exactMatch(cl_test,p))
+
+print(c.probsAtts)

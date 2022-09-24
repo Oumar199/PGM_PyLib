@@ -12,6 +12,7 @@ Code author: Jonathan Serrano-Pérez
 #libraries
 import numpy as np 
 from scipy.stats import norm
+from typing import Union
 
 class naiveBayes:
 
@@ -24,7 +25,7 @@ class naiveBayes:
 			meta={0: ['a', 'b', 'c'], 1: ['1', '2']}
 			Note that the keys are numbers, which began in 0
 	"""	
-	def __init__(self, smooth=0.1, usePrior=True, meta=""):
+	def __init__(self, smooth=0.1, usePrior=True, meta: Union[dict, str] = ""):
 		# Parameter to train the model:
 		#	Parameters used for training
 		self.smooth = smooth	

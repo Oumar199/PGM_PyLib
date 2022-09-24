@@ -11,6 +11,7 @@ Code author: Jonathan Serrano-Pérez
 
 import numpy as np
 import PGM_PyLib.semiNaive as sn
+import PGM_PyLib.naiveBayes as nb
 
 np.random.seed(0)   # it is not necessary
 # three classes
@@ -39,3 +40,27 @@ print(c.exactMatch(cl_test,p))
 
 # show the operations that were applied
 print(c.opeNameAtts)
+
+# show the values taken by the attributes
+print(c.lvaluesAtts)
+
+# show the attribute names after modifications
+print(c.orderAtts)
+
+new_data_train = c.applyOperations(data_train)
+new_data_test = c.applyOperations(data_test)
+
+b = nb.sumNaiveBayes(meta = c.lvaluesAtts)
+
+b.fit(new_data_train, cl_train)
+
+p = b.predict(new_data_test)
+
+print(b.exactMatch(cl_test, p))
+
+b.usePrior = False
+
+p = b.predict(new_data_test)
+
+print(b.exactMatch(cl_test, p))
+

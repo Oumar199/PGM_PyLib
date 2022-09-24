@@ -63,4 +63,6 @@ c2.usePrior = False
 p = c2.predict(data_test)
 print(c2.exactMatch(cl_test,p))
 
+print(c2.probsAtts)
+
 
